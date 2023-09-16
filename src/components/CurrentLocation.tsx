@@ -10,12 +10,10 @@ const CurrentLocation: React.FC<CurrentLocationProps> = ({
 
   return (
     <div>
-      {location && (
-        <div>
-          <p>Latitude: {latitude}</p>
-          <p>Longitude: {longitude}</p>
-        </div>
-      )}
+      <div>
+        <p>Latitude: {latitude}</p>
+        <p>Longitude: {longitude}</p>
+      </div>
     </div>
   )
 }

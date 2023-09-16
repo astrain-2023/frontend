@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react"
 import RANDOM_ROUTE from "../util/randomRoute"
 
-const POLLING_INTERVAL = 1000
+const POLLING_INTERVAL = 100
 
 const useFakeLocation = () => {
   const [index, setIndex] = useState<number>(0)
-
-  useEffect(() => {
-  }, [])
 
   useEffect(() => {
     const updateLocation = () => {
