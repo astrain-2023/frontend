@@ -1,7 +1,7 @@
 type CurrentLocationProps = {
-  latitude: number;
-  longitude: number;
-};
+  latitude: number
+  longitude: number
+}
 
 const CurrentLocation: React.FC<CurrentLocationProps> = ({
   latitude,
@@ -17,7 +17,7 @@ const CurrentLocation: React.FC<CurrentLocationProps> = ({
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default CurrentLocation;
+export default CurrentLocation
