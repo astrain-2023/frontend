@@ -18,7 +18,7 @@ const Mapbox: React.FC<MapboxProps> = ({ latitude, longitude, zoom }) => {
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || ''
 
     mapRef.current = new mapboxgl.Map({
-      container: mapContainerRef.current,
+      container: mapContainerRef.current!,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [longitude, latitude],
       zoom: zoom
@@ -33,6 +33,9 @@ const Mapbox: React.FC<MapboxProps> = ({ latitude, longitude, zoom }) => {
       .addTo(mapRef.current!)
     })
 
+    const nav = new mapboxgl.NavigationControl();
+    mapRef.current.addControl(nav, 'top-right'); 
+
     return () => mapRef.current?.remove()
   }, [])
 
@@ -45,7 +48,7 @@ const Mapbox: React.FC<MapboxProps> = ({ latitude, longitude, zoom }) => {
     }
   }, [latitude, longitude]) 
 
-  return <div ref={mapContainerRef} style={{ width: '100%', height: '400px' }}></div>
+  return <div ref={mapContainerRef} style={{ width: '100%', height: '500px' }} />
 }
 
 export default Mapbox
