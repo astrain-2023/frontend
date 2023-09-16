@@ -1,0 +1,10 @@
+{
+  "theme_color": "#007DC7",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "JamHero",
+  "short_name": "JamHero",
+  "description": "Predict and prevent traffic congestions by rewarding drivers for congestion-limiting behavior",
+}
