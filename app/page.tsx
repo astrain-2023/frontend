@@ -17,7 +17,7 @@ export default function Home() {
   } = useDrivingInstructions()
 
   return (
-    <main className="h-screen w-full flex flex-col items-stretch justify-between">
+    <main className="supports-[height:100cqh]:h-[100cqh] supports-[height:100svh]:h-[100svh] w-full flex flex-col items-stretch justify-between">
       {latitude && longitude ? (
         <>
           <Mapbox latitude={latitude} longitude={longitude} zoom={ZOOM_LEVEL} />
