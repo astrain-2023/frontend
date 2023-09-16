@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react"
-import useFakeLocation from "./useFakeLocation"
-import RANDOM_EVENTS from "../util/randomEvents"
+import drivingInstructions from "../util/drivingInstructions"
 
-const POLLING_INTERVAL = 10000
+const POLLING_INTERVAL = 100
 
 const useDrivingInstructions = () => {
-  const { latitude, longitude, error } = useFakeLocation()
   const [index, setIndex] = useState<number>(0)
 
   useEffect(() => {
     const updateLocation = () => {
-      setIndex((previousIndex) => (previousIndex + 1) % RANDOM_EVENTS.length)
+      setIndex((previousIndex) => (previousIndex + 1) % drivingInstructions.length)
     }
 
     const intervalId = setInterval(updateLocation, POLLING_INTERVAL)
@@ -20,15 +18,10 @@ const useDrivingInstructions = () => {
     return () => clearInterval(intervalId)
   }, [])
 
-  const instruction = RANDOM_EVENTS[index]
+  console.log(index)
+  console.table(drivingInstructions[index])
 
-  return {
-    recommendation: "Get out! Otherwise you end up like strawberries... in a jam!",
-    instruction,
-    latitude,
-    longitude,
-    error
-  }
+  return drivingInstructions[index]
 }
 
 export default useDrivingInstructions

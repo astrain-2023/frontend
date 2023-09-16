@@ -6,28 +6,23 @@ import Navigation from '@/src/components/Navigation'
 import Recommendation from '@/src/components/Recommendation'
 import useDrivingInstructions from '@/src/hooks/useDrivingInstructions'
 
-const ZOOM_LEVEL = 13
+const ZOOM_LEVEL = 14
 
 export default function Home() {
   const {
     recommendation,
     instruction,
     latitude,
-    longitude,
-    error
+    longitude
   } = useDrivingInstructions()
-
-  if (error) {
-    console.log(error);
-  }
 
   return (
     <main className="h-screen w-full flex flex-col items-stretch justify-between">
       {latitude && longitude ? (
         <>
           <Mapbox latitude={latitude} longitude={longitude} zoom={ZOOM_LEVEL} />
-          <Recommendation text={recommendation} />
-          <Instruction event={instruction} />
+          {recommendation && <Recommendation text={recommendation} />}
+          {instruction && <Instruction event={instruction} />}
           <Navigation />
         </>
       ) : (
