@@ -22,7 +22,13 @@ const useDrivingInstructions = () => {
 
   const instruction = RANDOM_EVENTS[index]
 
-  return { instruction, latitude, longitude, error }
+  return {
+    recommendation: "Get out! Otherwise you end up like strawberries... in a jam!",
+    instruction,
+    latitude,
+    longitude,
+    error
+  }
 }
 
 export default useDrivingInstructions

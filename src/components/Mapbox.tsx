@@ -48,7 +48,7 @@ const Mapbox: React.FC<MapboxProps> = ({ latitude, longitude, zoom }) => {
     }
   }, [latitude, longitude]) 
 
-  return <div ref={mapContainerRef} style={{ width: '100%', height: '500px' }} />
+  return <div ref={mapContainerRef} style={{ width: '100%', height: '100%' }} />
 }
 
 export default Mapbox

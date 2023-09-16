@@ -9,7 +9,13 @@ import useDrivingInstructions from '@/src/hooks/useDrivingInstructions'
 const ZOOM_LEVEL = 13
 
 export default function Home() {
-  const { instruction, latitude, longitude, error } = useDrivingInstructions()
+  const {
+    recommendation,
+    instruction,
+    latitude,
+    longitude,
+    error
+  } = useDrivingInstructions()
 
   if (error) {
     console.log(error);
@@ -20,9 +26,9 @@ export default function Home() {
       {latitude && longitude ? (
         <>
           <Mapbox latitude={latitude} longitude={longitude} zoom={ZOOM_LEVEL} />
-          <Recommendation className='grow'text="Get out! Otherwise you end up like strawberries... in a jam!" />
+          <Recommendation text={recommendation} />
           <Instruction event={instruction} />
-          <Navigation className='' />
+          <Navigation />
         </>
       ) : (
         <p>Loading...</p>
